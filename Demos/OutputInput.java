@@ -28,13 +28,14 @@ public class OutputInput
 		}
 		IBIO.output(", then.");
 		IBIO.output("Bye!");
-		
+
+		System.out.println("\n\n");
 		System.out.println("Hello");
 		System.out.println("CS");
 		System.out.println("World");
 		System.out.print("Hello");
 		System.out.print("CS");
-		System.out.print("World");
+		System.out.println("World");
 		Scanner input = new Scanner(System.in);
 		System.out.print("Input your name ");
 		name = input.nextLine(); // for Strings
