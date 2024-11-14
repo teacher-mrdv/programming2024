@@ -25,7 +25,8 @@ public class Factorial
 				for(int i = 1; i <= n; i++)
 				{
 					factorial = factorial * factor;
-					if( n <= 10 )
+					//if( n <= 10 )
+					if( n > 1 && n <= 10)
 					{
 						IBIO.out(factor);
 						if( factor > 1)
@@ -34,7 +35,8 @@ public class Factorial
 					}
 					factor = factor - 1;
 				}
-				if(n <= 10)
+				//if(n <= 10)
+				if( n > 1 && n <= 10)
 				{	IBIO.out(" = ");
 				}
 				IBIO.output(factorial);
