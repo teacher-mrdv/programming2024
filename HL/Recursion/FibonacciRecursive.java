@@ -8,7 +8,7 @@ public class FibonacciRecursive
 		c++;
 		if(term == 0)
 		{	return 0;
-		}
+		}x
 		if(term == 1)
 		{	return 1;
 		}
@@ -16,8 +16,9 @@ public class FibonacciRecursive
 	}
 	public static void main (String[] args)
 	{
-		System.out.println( fibo(20) );
+		System.out.println( fibo() );
 		System.out.println( c );
+		//System.out.println( term );
 	}
 }
 
