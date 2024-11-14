@@ -3,11 +3,14 @@
  *	using recursion
  * IB HL CompSci
  * 14.11.2024
+ * v.2.0
  ****************************************/
- 
+
+import java.util.Scanner; // to input data
+
 public class Int2Bin
 {
-	// brainstorming idea...
+	// brainstorming ideas...
 	public static int den2binA(int d)
 	{
 		if( d == 0 )
@@ -17,6 +20,8 @@ public class Int2Bin
 		return den2binA(d/2);
 	}
 	
+	// void methods return nothing, we use them
+	// when we want to output data rather than returning it
 	public static void den2bin(int d)
 	{
 		if( d == 0 )
@@ -31,6 +36,15 @@ public class Int2Bin
 		den2binA(26);
 		System.out.println("\n\n");
 		den2bin(26);
+		/*
+		System.out.print("\n\nEnter an integer: ");
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		System.out.print(n + " base 10 = ");
+		den2bin( n );
+		System.out.println(" base 2.");
+		System.out.println();
+		*/
 	}
 }
 
