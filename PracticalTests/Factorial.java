@@ -4,10 +4,11 @@ public class Factorial
 	
 	public static void main (String[] args)
 	{
+		// #1
 		IBIO.output("Marcos Drien");
 		int n;
 		do
-		{	n = IBIO.inputInt("n = (1~20): ");
+		{	n = IBIO.inputInt("n = (1~20): "); // #2
 			/*if(n < 0)
 			{	IBIO.output("Error-out of range");
 			}

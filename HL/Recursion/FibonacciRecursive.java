@@ -16,7 +16,7 @@ public class FibonacciRecursive
 	}
 	public static void main (String[] args)
 	{
-		System.out.println( fibo() );
+		System.out.println( fibo(8) );
 		System.out.println( c );
 		//System.out.println( term );
 	}
