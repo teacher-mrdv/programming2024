@@ -1,6 +1,18 @@
 
 public class Chapter6Example1
 {
+
+	public static String spaces(int numberOfSpaces)
+	{
+		String spaces = "";
+		for(int i = 0; i < numberOfSpaces; i++)
+		{
+			spaces = spaces + " ";
+		}
+		return spaces;
+	}
+
+
 	public static String stars(int numberOfStars)
 	{
 		String stars = "";
@@ -8,7 +20,7 @@ public class Chapter6Example1
 		{
 			stars = stars + "*";
 		}
-		return stars;
+		return spaces(10) + stars;
 	}
 	
 	public static void main (String[] args)
