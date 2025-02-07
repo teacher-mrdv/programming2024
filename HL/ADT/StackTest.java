@@ -15,6 +15,16 @@ public class StackTest
 		s.push(7);
 		s.printStack();
 		
+		System.out.println("Popping : " + s.pop());
+		s.printStack();
+		System.out.println("Popping : " + s.pop());
+		s.printStack();
+		System.out.println("Popping : " + s.pop());
+		s.printStack();
+		System.out.println("Popping : " + s.pop());
+		s.printStack();
+		System.out.println("Popping : " + s.pop());
+		s.printStack();
 	}
 }
 
