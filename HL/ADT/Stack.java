@@ -56,6 +56,7 @@ public class Stack
 		System.out.println("null    Size = " + size);
 	}
 
+	/* less efficient than using a variable to keep track of the size
 	public int size()
 	{
 		Node temp = top;
@@ -65,7 +66,7 @@ public class Stack
 			temp = temp.next;
 		}
 		return counter;
-	}
+	} */
 
 }
 
