@@ -51,7 +51,7 @@ public class ArrayDemo1
 	public static void main (String[] args)
 	{
 		int[] array1 = {5,2,3,7,9,0,-3};
-		//System.out.println( array1 );
+		System.out.println( array1 );
 		printArray(array1);
 		int[] array2 = clone(array1);
 		printArray(array2);
