@@ -1,7 +1,6 @@
-
 public class ArraysDemo2
 {
-
+	// what does this method do?
 	public static int[] mystery(int[] a)
 	{
 		int len = a.length;
@@ -14,7 +13,6 @@ public class ArraysDemo2
 		return output;
 	}
 
-	
 	public static void printArray(int[] array)
 	{
 		for(int i = 0; i < array.length; i++)
