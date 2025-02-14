@@ -10,7 +10,7 @@ public class NameAddFixed
 				POS < BUGS.length-1 )
 		{	POS = POS + 1;
 		}
-		if(BUGS[POS] == "FREE")
+		if(BUGS[POS].equals("FREE"))
 		{	BUGS[POS] = THISNAME;
 			if(POS < BUGS.length-1)
 			{	BUGS[POS + 1] = "FREE";

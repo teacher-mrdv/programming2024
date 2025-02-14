@@ -10,7 +10,7 @@ public class NameAdd2
 		} while (!BUGS[POS].equals("FREE") &&
 		         !BUGS[POS].equals(THISNAME));
 		
-		if(BUGS[POS] == "FREE")
+		if(BUGS[POS].equals("FREE"))
 		{
 			BUGS[POS] = THISNAME;
 			BUGS[POS + 1] = "FREE";
