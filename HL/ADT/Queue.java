@@ -26,6 +26,20 @@ public class Queue
 		size++;
 	}
 
+	public int dequeue()
+	{
+		if( !isEmpty() )
+		{
+			int data = head.data;
+			head = head.next;
+			size--;
+			return data;
+		} else {
+			System.out.println("Error - Queue is empty");
+			return 0;
+		}
+	}
+
 	public void printQueue()
 	{
 		Node temp = head;
