@@ -1,10 +1,10 @@
 /*
- * QueueTest assuming that we are using our ADT implementation
- * which has a size variable that keeps track of an ADT's / queue's size
+ * QueueTest assuming that we are using the IBO's ADT implementation
+ * which DOES NOT HAVE a size variable to keep track of an ADT's size
  */
- import java.util.Arrays;
+import java.util.Arrays;
 
-public class QueueTest
+public class QueueTestIB
 {
 	
 	public static void main (String[] args)
@@ -21,10 +21,26 @@ public class QueueTest
 		System.out.println("\nTransferring the queue to an array");
 		System.out.print("Original Q: ");
 		myQueue.printQueue();
-		
-		int[] array = new int[myQueue.size];
-		
-		/* // moving all queue elements to an array (WHILE loop version)
+		/* this is how we would have to calculate the size of the queue,
+		 * stack or linked list if we didn't have a size variable
+		 * keeping track of it in the Stack and Queue classes,
+		 * which is the way the IB implement their ADTs */
+		Node temp = myQueue.head;
+		int qSize = 0;
+		while( temp != null )
+		{	qSize++;
+			temp = temp.next;
+		}
+		// since now we know the queue size, we can create the array
+		int[] array = new int[qSize]; 
+		// FOR loop implementation to move all queue elements to an array
+		for(int i = 0; i < qSize; i++)
+		{	array[i] = myQueue.dequeue();
+			myQueue.printQueue();
+			System.out.println("Array = " + Arrays.toString(array));
+		}
+		// WHILE loop implementation to move all queue elements to an array
+		/*
 		int index = 0;
 		while(!myQueue.isEmpty())
 		{	array[index] = myQueue.dequeue();
@@ -33,16 +49,11 @@ public class QueueTest
 			index++;
 		}
 		*/
-		// FOR loop implementation of the above
 		
-		int qSize = myQueue.size;	// because the Q size will change as we dequeue it
-		for(int i = 0; i < qSize; i++)
-		{	array[i] = myQueue.dequeue();
-			myQueue.printQueue();
-			System.out.println("Array = " + Arrays.toString(array));
-		}
-
 		// challenge: COPY the queue to the array (without dequeuing it)
+		
+
+
 		
 	}
 }
