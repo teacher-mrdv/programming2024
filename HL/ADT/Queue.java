@@ -3,14 +3,14 @@ public class Queue
 {
 	Node head;
 	Node tail;
-	int size = 0;
+	int size = 0;	// NOT a built-in; some exams refer to size/size()
 
-	public boolean isEmpty()
+	public boolean isEmpty()	// built-in; assume it already exists
 	{
 		return head == null;
 	}
 
-	public void enqueue(int data)
+	public void enqueue(int data)// built-in; assume it already exists
 	{
 		Node newNode = new Node();
 		newNode.data = data;
@@ -26,7 +26,7 @@ public class Queue
 		size++;
 	}
 
-	public int dequeue()
+	public int dequeue()	// built-in; assume it already exists
 	{
 		if( !isEmpty() )
 		{
@@ -40,7 +40,7 @@ public class Queue
 		}
 	}
 
-	public void printQueue()
+	public void printQueue()	// NOT a built-in
 	{
 		Node temp = head;
 		System.out.print("Head");
