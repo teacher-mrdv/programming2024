@@ -6,6 +6,16 @@
 
 public class QueueTest
 {
+	public static int queueSize(Queue q)
+	{
+		int size = 0;
+		Node temp = q.head;
+		while(temp != null)
+		{	size++;
+			temp = temp.next;
+		}
+		return size;
+	}
 	
 	public static void main (String[] args)
 	{
@@ -21,8 +31,9 @@ public class QueueTest
 		System.out.println("\nTransferring the queue to an array");
 		System.out.print("Original Q: ");
 		myQueue.printQueue();
-		
-		int[] array = new int[myQueue.size];
+
+		int myQueueSize = queueSize(myQueue); // please refer to the method ^
+		int[] array = new int[myQueueSize];
 		
 		/* // moving all queue elements to an array (WHILE loop version)
 		int index = 0;
@@ -35,8 +46,7 @@ public class QueueTest
 		*/
 		// FOR loop implementation of the above
 		
-		int qSize = myQueue.size;	// because the Q size will change as we dequeue it
-		for(int i = 0; i < qSize; i++)
+		for(int i = 0; i < myQueueSize; i++)
 		{	array[i] = myQueue.dequeue();
 			myQueue.printQueue();
 			System.out.println("Array = " + Arrays.toString(array));
