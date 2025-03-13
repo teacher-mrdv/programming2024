@@ -25,20 +25,21 @@ public class QueueTestIB
 		 * stack or linked list if we didn't have a size variable
 		 * keeping track of it in the Stack and Queue classes,
 		 * which is the way the IB implement their ADTs */
-		Node temp = myQueue.head;
 		int qSize = 0;
-		while( temp != null )
-		{	qSize++;
-			temp = temp.next;
+		Node temp = myQueue.head;
+		while(temp != null)
+		{	temp = temp.next;
+			qSize++;
 		}
 		// since now we know the queue size, we can create the array
 		int[] array = new int[qSize]; 
 		// FOR loop implementation to move all queue elements to an array
-		for(int i = 0; i < qSize; i++)
+		/*for(int i = 0; i < qSize; i++)
 		{	array[i] = myQueue.dequeue();
 			myQueue.printQueue();
 			System.out.println("Array = " + Arrays.toString(array));
 		}
+		*/
 		// WHILE loop implementation to move all queue elements to an array
 		/*
 		int index = 0;
@@ -51,9 +52,20 @@ public class QueueTestIB
 		*/
 		
 		// challenge: COPY the queue to the array (without dequeuing it)
-		
-
-
+		temp = myQueue.head;
+		int index = 0;
+		while( temp != null )
+		{
+			array[index] = temp.data;
+			index++;
+			temp = temp.next;
+			//myQueue.printQueue(); // optional, shows how the queue changes
+			System.out.println("Array = " + Arrays.toString(array));
+		}
+		System.out.print("Queue after the transfer: ");
+		myQueue.printQueue(); // optional, shows how the queue changes
+		System.out.println("Array after the transfer: " + Arrays.toString(array)); // optional, shows how the array changes (using an external library/imported class which we're not allowed to use in exams
+		index++;
 		
 	}
 }

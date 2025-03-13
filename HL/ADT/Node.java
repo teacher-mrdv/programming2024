@@ -33,8 +33,8 @@ public class Node
 
 	// this allows us to "print" a node (returns a String representatin of a node)
 	public String toString()
-	{
-		return Integer.toString(data);
+	{	return data + ""; // auto casting to String
+		//also: return Integer.toString(data);
 	}
 }
 

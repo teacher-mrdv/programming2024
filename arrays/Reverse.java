@@ -13,7 +13,7 @@ public class Reverse
 	
 	public static void main (String[] args)
 	{
-		System.out.println( reverse("CAIO"));
+		System.out.println( reverse("ALBERT"));
 	}
 }
 
