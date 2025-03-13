@@ -18,16 +18,18 @@ public class ListArray
 	public static char[] list = new char[5];
 	public static int end = 0; // to keep track of the end of the list
 
-    public static boolean isEmpty() {
-        return end == 0;
+    public static boolean isEmpty()
+    {	return end == 0;
     }
 
-    public static boolean isFull() {
-        return end == list.length;
+    public static boolean isFull()
+    {    return end == list.length;
     }
 
-    public static void append(char element) {
-        if (isFull() == true) {
+    public static void append(char element)
+    {
+        if (isFull() == true)
+        {
             char[] newList = new char[list.length + 1]; // 1 or more
             for (int i = 0; i < end; i++) {
                 newList[i] = list[i];
@@ -41,21 +43,28 @@ public class ListArray
     }
 
 	// a simple linear search returning the FIRST occurrence of 'element'
-    public static int indexOf(char element) {
-        for (int i = 0; i < end; i++) {
-            if (element == list[i]) {
+    public static int indexOf(char element)
+    {
+        for (int i = 0; i < end; i++)
+        {
+            if (element == list[i])
+            {
                 return i;
             }
         }
         return -1;
     }
 
-    public static void printList() {
-        for (int i = 0; i < end; i++) {
+    public static void printList()
+    {
+        for (int i = 0; i < end; i++)
+        {
             System.out.printf("%2d : %c", i, list[i]);
-            if (i == end - 1) {
+            if (i == end - 1)
+            {
                 System.out.println(" <-- END [" + end + "]");
-            } else {
+            } else
+            {
                 System.out.println();
             }
         }
@@ -63,7 +72,8 @@ public class ListArray
     // Complete the methods below this line //
     
     // swaps the elements at index1 and index2; returns true if successful, false if unsuccessful
-    public boolean swap(int index1, int index2) {
+    public boolean swap(int index1, int index2)
+    {
 		// validate and run checks!
 		// no point swapping if the indices are the same!
 		if( index1 == index2 )
@@ -85,9 +95,11 @@ public class ListArray
     }
 
     // converts list to a String, similar to Arrays.toString(array)
-    public static String listToString() {
+    public static String listToString()
+    {
 		String output = ""; // we must initialise the String
-		if( !isEmpty() ) {
+		if( !isEmpty() )
+		{
 			for(int i = 0; i < end; i++)
 			{	output = output + list[i];
 			}
@@ -96,39 +108,46 @@ public class ListArray
     }
 
 	// replace a character at 'index' with 'replacement'; returns true if successful, false if unsuccessful
-    public static boolean replace(int index, char replacement) {
-		// your code goes here
-		return false;
+    public static boolean replace(int index, char replacement)
+    {
+		if(index < 0 || index >= end )
+		{	return false;
+		}
+		list[index] = replacement;
+		return true;
     }
 
 	// replace all occurences of 'original' character with 'replacement; returns the number of replacements made (0 if nothing replaced)
-    public static int replace(char original, char replacement) {
+    public static int replace(char original, char replacement)
+    {
         int count = 0; // count replacements made
         // your code goes here
         return count;
     }
 
     // create a method to remove directly by INDEX
-    public static boolean remove(int index) {
-		// your code goes here
-        if (index < 0 || index >= list.length) {
+    public static boolean remove(int index)
+    {
+        if (index < 0 || index >= end)
+        {
             return false;
-        } else
-        // are we removing the last one?
-        if (index >= (end - 1)) {
-            end--;
-            return true;
-        } else {
-            // move the array contents "one index up"
-            for (int i = index; i < end - 1; i++) {
-                list[i] = list[i + 1];
-            }
-            end--;
-            return true;  // success
         }
+        // are we removing the last one?
+        if (index >= (end - 1))
+        {	end--;
+            return true;
+        }
+		// move the array contents "one index up"
+		for (int i = index; i < end - 1; i++)
+		{
+			list[i] = list[i + 1];
+		}
+		end--;
+		return true;  // success
     }
 
-    public static int remove(char element) {
+    public static int remove(char element)
+    {
         int count = 0;
         // your code goes here
         return count;
