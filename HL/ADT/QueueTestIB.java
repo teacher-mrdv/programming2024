@@ -18,54 +18,51 @@ public class QueueTestIB
 		myQueue.enqueue(9);	myQueue.printQueue();
 		myQueue.enqueue(3);	myQueue.printQueue();
 
-		System.out.println("\nTransferring the queue to an array");
+		System.out.println("\nCOPYING the queue to an array");
 		System.out.print("Original Q: ");
 		myQueue.printQueue();
 		/* this is how we would have to calculate the size of the queue,
 		 * stack or linked list if we didn't have a size variable
 		 * keeping track of it in the Stack and Queue classes,
 		 * which is the way the IB implement their ADTs */
-		int qSize = 0;
+		int myQueueSize = 0;
 		Node temp = myQueue.head;
 		while(temp != null)
 		{	temp = temp.next;
-			qSize++;
+			myQueueSize++;
 		}
+		// declare and create the array with the same length as the queue size
+		int[] array = new int[myQueueSize];
 		// since now we know the queue size, we can create the array
-		int[] array = new int[qSize]; 
-		// FOR loop implementation to move all queue elements to an array
-		/*for(int i = 0; i < qSize; i++)
+		// challenge: COPY the queue to the array (without dequeuing it)
+		temp = myQueue.head;
+		for(int i = 0; i < myQueueSize; i++)
+		{	array[i] = temp.data;
+			temp = temp.next;
+			System.out.println("Array = " + Arrays.toString(array));
+		}
+		System.out.print("Final queue: "); myQueue.printQueue();
+		
+		// moving all queue elements to an array (WHILE loop version)
+		int[] move = new int[myQueueSize];
+		System.out.println("\nTransferring the queue to an array");
+		int index = 0;
+		while(!myQueue.isEmpty())
+		{	myQueue.printQueue(); // optional, shows how the queue changes
+			move[index] = myQueue.dequeue();
+			System.out.println("Array = " + Arrays.toString(move)); // optional, shows how the array changes (using an external library/imported class which we're not allowed to use in exams
+			index++;
+		}
+		System.out.print("Final queue: "); myQueue.printQueue();
+		
+		// FOR loop implementation of the above
+		/*
+		for(int i = 0; i < myQueueSize; i++)
 		{	array[i] = myQueue.dequeue();
 			myQueue.printQueue();
 			System.out.println("Array = " + Arrays.toString(array));
 		}
 		*/
-		// WHILE loop implementation to move all queue elements to an array
-		/*
-		int index = 0;
-		while(!myQueue.isEmpty())
-		{	array[index] = myQueue.dequeue();
-			myQueue.printQueue(); // optional, shows how the queue changes
-			System.out.println("Array = " + Arrays.toString(array)); // optional, shows how the array changes (using an external library/imported class which we're not allowed to use in exams
-			index++;
-		}
-		*/
-		
-		// challenge: COPY the queue to the array (without dequeuing it)
-		temp = myQueue.head;
-		int index = 0;
-		while( temp != null )
-		{
-			array[index] = temp.data;
-			index++;
-			temp = temp.next;
-			//myQueue.printQueue(); // optional, shows how the queue changes
-			System.out.println("Array = " + Arrays.toString(array));
-		}
-		System.out.print("Queue after the transfer: ");
-		myQueue.printQueue(); // optional, shows how the queue changes
-		System.out.println("Array after the transfer: " + Arrays.toString(array)); // optional, shows how the array changes (using an external library/imported class which we're not allowed to use in exams
-		index++;
 		
 	}
 }
