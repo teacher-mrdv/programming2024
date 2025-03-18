@@ -190,13 +190,14 @@ public class ListArray
 
     // create a method to insert an element AT an index of the list
     public static void insert(char element, int position) {
-        if (position >= end) { // insert at/past end
+        if (position >= end)
+        { // insert at/past end
             append(element);
             return;
         }
         if (!isFull()) { // if array's not full...
-            for (int i = end - 1; i >= position; i--) {
-                list[i + 1] = list[i];
+            for (int i = end - 1; i >= position; i--)
+            {	list[i + 1] = list[i];
             }
             list[position] = element;
             end++;
@@ -219,10 +220,11 @@ public class ListArray
     }
 
 	// removes any empty slots in the array
-    public static void resize() {
+    public static void resize()
+    {
         char[] newList = new char[end];
-        for (int i = 0; i < end; i++) {
-            newList[i] = list[i];
+        for (int i = 0; i < end; i++)
+        {	newList[i] = list[i];
         }
         list = newList;
     }
