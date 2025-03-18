@@ -118,11 +118,29 @@ public class ListArray
     }
 
 	// replace all occurences of 'original' character with 'replacement; returns the number of replacements made (0 if nothing replaced)
+    /*public static int replace(char original, char replacement)
+    {	int count = 0; // count replacements made
+		int index = indexOf(original); // check if char to replace is in list or not
+		if(index != -1)
+		{	for(int i = 0; i < end; i++)
+			{	if(list[i] == original)
+				{	list[i] = replacement;
+					count++;
+				}
+			}
+		}
+		return count;
+    }*/
+    
     public static int replace(char original, char replacement)
-    {
-        int count = 0; // count replacements made
-        // your code goes here
-        return count;
+    {	int count = 0; // count replacements made
+		int index = indexOf(original); // check if char to replace is in list or not
+		while(index != -1)
+		{	list[index] = replacement;
+			count++;
+			index = indexOf(original); // check for another occurrence
+		}
+		return count;
     }
 
     // create a method to remove directly by INDEX
@@ -149,8 +167,25 @@ public class ListArray
     public static int remove(char element)
     {
         int count = 0;
-        // your code goes here
-        return count;
+		int remove;
+		do
+		{	remove = indexOf(element);
+			if(remove == -1)
+			{	break;
+			}
+			if(remove == end-1) // special case: removing the end of the list
+			{	count++;
+				end--;
+				break;
+			}
+			for(int i = remove; i < end-1; i++)
+			{	list[i] = list[i+1];
+			}
+			end--;
+			count++;
+		} while(remove != -1);
+		resize();
+		return count;  // success
     }
 
     // create a method to insert an element AT an index of the list
