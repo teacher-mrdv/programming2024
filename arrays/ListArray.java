@@ -167,23 +167,12 @@ public class ListArray
     public static int remove(char element)
     {
         int count = 0;
-		int remove;
-		do
-		{	remove = indexOf(element);
-			if(remove == -1)
-			{	break;
-			}
-			if(remove == end-1) // special case: removing the end of the list
-			{	count++;
-				end--;
-				break;
-			}
-			for(int i = remove; i < end-1; i++)
-			{	list[i] = list[i+1];
-			}
-			end--;
+		int removeIndex = indexOf(element);
+		while(removeIndex != -1)
+		{	remove(removeIndex);
 			count++;
-		} while(remove != -1);
+			removeIndex = indexOf(element);
+		} 
 		resize();
 		return count;  // success
     }
@@ -255,29 +244,29 @@ public class ListArray
 		System.out.println("List to String: " + listToString() );
 		System.out.println("\nremove('*'):" + remove('*'));
 		printList();
-		System.out.println("\ninsert('D', 1):");
+		System.out.println("\ninsert('D', 1): ");
 		insert('D', 1);	printList();
-		System.out.println("\ninsert('r', 9):");
+		System.out.println("\ninsert('r', 9): ");
 		insert('r', 9);	printList();
-		System.out.println("\ninsert('h', 5):");
+		System.out.println("\ninsert('h', 5): ");
 		insert('h', 5);	printList();
-		System.out.println("\ninsert('~', 6):");
+		System.out.println("\ninsert('~', 6): ");
 		insert('~', 6);	printList();
-		System.out.println("\ninsert('V', 7):");
+		System.out.println("\ninsert('V', 7): ");
 		insert('V', 7);	printList();
-		System.out.println("\nreplace(8, 'a'):" + replace(8, 'a'));
+		System.out.println("\nreplace(8, 'a'): " + replace(8, 'a'));
 		printList();
-		System.out.println("\nreplace(9, 'd'):" + replace(9, 'd'));
+		System.out.println("\nreplace(9, 'd'): " + replace(9, 'd'));
 		printList();
-		System.out.println("\nremove(10):" + remove(10));
+		System.out.println("\nremove(10): " + remove(10));
 		printList();
-		System.out.println("\nremove(0):" + remove(0));
+		System.out.println("\nremove(0): " + remove(0));
 		printList();
 		System.out.println("\ninsert('+', 99):");
 		insert('+', 99);
 		printList();
 		System.out.println("List length = " + list.length);
-		System.out.println("\nremove('+'):" + remove('+'));
+		System.out.println("\nremove('+'): " + remove('+'));
 		printList();
 		System.out.println("\nappend('#'):");
 		append('#');	printList();
