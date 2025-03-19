@@ -145,14 +145,13 @@ public class ListArray
 
     // create a method to remove directly by INDEX
     public static boolean remove(int index)
-    {
-        if (index < 0 || index >= end)
-        {
-            return false;
+    {	if (index < 0 || index >= end)
+        {	return false;
         }
         // are we removing the last one?
         if (index >= (end - 1))
         {	end--;
+			resize();
             return true;
         }
 		// move the array contents "one index up"
@@ -161,6 +160,7 @@ public class ListArray
 			list[i] = list[i + 1];
 		}
 		end--;
+		resize();
 		return true;  // success
     }
 
@@ -178,26 +178,24 @@ public class ListArray
     }
 
     // create a method to insert an element AT an index of the list
-    public static void insert(char element, int position) {
-        if (position >= end)
-        { // insert at/past end
-            append(element);
+    public static void insert(char element, int position)
+    {	if (position >= end)
+        {	append(element); // insert at/past the end = append
             return;
         }
-        if (!isFull()) { // if array's not full...
-            for (int i = end - 1; i >= position; i--)
+        if (!isFull())	// if array's not full...
+        {   for (int i = end - 1; i >= position; i--)
             {	list[i + 1] = list[i];
             }
             list[position] = element;
             end++;
         }
-        if (isFull()) { // copy the array into a new, larger array if the
-            // original is full
-            char[] bigger = new char[list.length + 1];
+        if (isFull()) // copy array into a larger array if the original is full
+        {   char[] bigger = new char[list.length + 1];
             int newIndex = 0;
-            for (int i = 0; i < list.length; i++) {
-                if (i == position) {
-                    bigger[newIndex] = element;
+            for (int i = 0; i < list.length; i++)
+            {	if (i == position)
+				{	bigger[newIndex] = element;
                     newIndex++;
                 }
                 bigger[newIndex] = list[i];
@@ -342,7 +340,7 @@ append('e'):
  7 : l
  8 : e <-- END [9]
 
-List length = 10
+List length = 9
 List to String: *+artpale
 
 remove('*'):1
@@ -355,7 +353,7 @@ remove('*'):1
  6 : l
  7 : e <-- END [8]
 
-insert('D', 1):
+insert('D', 1): 
  0 : +
  1 : D
  2 : a
@@ -366,7 +364,7 @@ insert('D', 1):
  7 : l
  8 : e <-- END [9]
 
-insert('r', 9):
+insert('r', 9): 
  0 : +
  1 : D
  2 : a
@@ -378,7 +376,7 @@ insert('r', 9):
  8 : e
  9 : r <-- END [10]
 
-insert('h', 5):
+insert('h', 5): 
  0 : +
  1 : D
  2 : a
@@ -391,7 +389,7 @@ insert('h', 5):
  9 : e
 10 : r <-- END [11]
 
-insert('~', 6):
+insert('~', 6): 
  0 : +
  1 : D
  2 : a
@@ -405,7 +403,7 @@ insert('~', 6):
 10 : e
 11 : r <-- END [12]
 
-insert('V', 7):
+insert('V', 7): 
  0 : +
  1 : D
  2 : a
@@ -420,7 +418,7 @@ insert('V', 7):
 11 : e
 12 : r <-- END [13]
 
-replace(8, 'a'):true
+replace(8, 'a'): true
  0 : +
  1 : D
  2 : a
@@ -435,7 +433,7 @@ replace(8, 'a'):true
 11 : e
 12 : r <-- END [13]
 
-replace(9, 'd'):true
+replace(9, 'd'): true
  0 : +
  1 : D
  2 : a
@@ -450,7 +448,7 @@ replace(9, 'd'):true
 11 : e
 12 : r <-- END [13]
 
-remove(10):true
+remove(10): true
  0 : +
  1 : D
  2 : a
@@ -464,7 +462,7 @@ remove(10):true
 10 : e
 11 : r <-- END [12]
 
-remove(0):true
+remove(0): true
  0 : D
  1 : a
  2 : r
@@ -490,9 +488,9 @@ insert('+', 99):
  9 : e
 10 : r
 11 : + <-- END [12]
-List length = 13
+List length = 12
 
-remove('+'):1
+remove('+'): 1
  0 : D
  1 : a
  2 : r
@@ -532,7 +530,8 @@ remove(end-1):true
  9 : e
 10 : r <-- END [11]
 
-List length = 13
+List length = 11
 List to String: Darth~Vader
+
 
 */
