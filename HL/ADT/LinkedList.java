@@ -29,18 +29,26 @@ public class LinkedList
 		temp.next = newNode;
 	}
 
-	public void remove(int delete)
-	{	if( delete == start.data )
-		{	start = start.next;
-			return;
+	public boolean remove(int delete)
+	{	if( isEmpty() )
+		{	return false;
 		}
-		Node previous = start;
+		if( delete == start.data )
+		{	start = start.next;
+			return true;
+		}
+		Node previous= start;
 		Node current = start.next;
+		// this part of the method needs improvements!
 		while( current.data != delete)
 		{	previous = previous.next;
 			current  = current.next;
 		}
-		previous.next = current.next;
+		if( current.data == delete)
+		{	previous.next = current.next;
+			return true;
+		}
+		return false;
 	}
 
 	// more typical IB question than adding a counter to the class

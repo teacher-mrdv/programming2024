@@ -31,7 +31,21 @@ public class Node
 	{	return next != null;
 	}
 
-	// this allows us to "print" a node (returns a String representatin of a node)
+	// similar to String's equals, allows to check if two Nodes have the same data
+	public boolean equals(Node another)
+	{	// this refers to the Node before the . e.g.: node1.equals(node2);
+		// this = node1 and another is node2
+		return this.data == another.data;
+	}
+
+	// similar to String's compareTo, allows us to compare two Nodes' data
+	public int compareTo(Node another)
+	{	return this.data - another.data;
+	}
+
+	/* this allows us to "print" a node
+	 * (returns a String representatin of a node)
+	 */
 	public String toString()
 	{	return data + ""; // auto casting to String
 		//also: return Integer.toString(data);
