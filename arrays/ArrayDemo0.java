@@ -1,5 +1,5 @@
 
-public class StringDemoThursday
+public class ArrayDemo0
 {
 	
 	public static void main (String[] args)
