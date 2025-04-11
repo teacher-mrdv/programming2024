@@ -40,7 +40,7 @@ public class LinkedList
 		Node previous= start;
 		Node current = start.next;
 		// this part of the method needs improvements!
-		while( current.data != delete)
+		while( current.next != null && current.data != delete )
 		{	previous = previous.next;
 			current  = current.next;
 		}
@@ -49,6 +49,24 @@ public class LinkedList
 			return true;
 		}
 		return false;
+	}
+
+	// insert BEFORE place
+	public void insert(Node insert, int place)
+	{
+		if(place-1 == 0)
+		{	insert.next = start;
+			start = insert;
+		}
+		int counter = 0;
+		Node temp = start;
+		while(counter < place)
+		{	temp = temp.next;
+			counter++;
+		}
+		insert = temp.next;
+		temp.next = insert;
+		
 	}
 
 	// more typical IB question than adding a counter to the class

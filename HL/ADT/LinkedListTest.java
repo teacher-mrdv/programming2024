@@ -33,6 +33,10 @@ public class LinkedListTest
 		ll.printLL();
 		System.out.println("\nRemoving 11: " + ll.remove(11));
 		ll.printLL();
+		n = new Node(2);
+		System.out.println("\nInserting 2 before 1st node: ");
+		ll.insert(n, 1);
+		ll.printLL();
 	}
 }
 

@@ -67,6 +67,24 @@ public class LinkedListPlus
 		*/
 	}
 
+	// insert BEFORE place
+	public void insert(Node insert, int place)
+	{
+		if(place-1 == 0)
+		{	insert.next = start;
+			start = insert;
+		}
+		int counter = 0;
+		Node temp = start;
+		while(counter < place)
+		{	temp = temp.next;
+			counter++;
+		}
+		insert = temp.next;
+		temp.next = insert;
+		
+	}
+
 	// more typical IB question than adding a counter to the class
 	public int size()
 	{
@@ -117,6 +135,10 @@ public class LinkedListPlus
 		System.out.println("\nRemoving 9: " + ll.remove(new Node(9)));
 		ll.printLL();
 		System.out.println("\nRemoving 11: " + ll.remove(new Node(11)));
+		ll.printLL();
+		n = new Node(2);
+		System.out.println("\nInserting 2 before 1st node: ");
+		ll.insert(n, 1);
 		ll.printLL();
 	}
 
