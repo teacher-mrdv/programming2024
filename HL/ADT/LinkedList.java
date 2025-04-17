@@ -52,21 +52,33 @@ public class LinkedList
 	}
 
 	// insert BEFORE place
-	public void insert(Node insert, int place)
-	{
-		if(place-1 == 0)
+	public void insertBefore(Node insert, int place)
+	{	if(place < 1 || place > size())
+		{	System.out.println("ERROR - Insertion place out of bounds!");
+			return;
+		}
+		if(place == 1)
 		{	insert.next = start;
 			start = insert;
+			return;
 		}
-		int counter = 0;
+		int counter = 1;
 		Node temp = start;
-		while(counter < place)
+		while(counter < place-1)
 		{	temp = temp.next;
 			counter++;
 		}
-		insert = temp.next;
+		insert.next = temp.next;
 		temp.next = insert;
-		
+	}
+
+	// insert AFTER a place
+	public void insertAfter(Node insert, int place)
+	{	if(place < 1)
+		{	System.out.println("ERROR - Insertion place out of bounds!");
+			return;
+		}
+		// your code goes here
 	}
 
 	// more typical IB question than adding a counter to the class

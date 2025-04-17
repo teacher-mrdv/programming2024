@@ -35,8 +35,30 @@ public class LinkedListTest
 		ll.printLL();
 		n = new Node(2);
 		System.out.println("\nInserting 2 before 1st node: ");
-		ll.insert(n, 1);
+		ll.insertBefore(n, 1);
 		ll.printLL();
+		n = new Node(9);
+		System.out.println("\nInserting 9 before 5th node: ");
+		ll.insertBefore(n, 5);
+		ll.printLL();
+		n = new Node(5);
+		System.out.println("\nInserting 5 before 3rd node: ");
+		ll.insertBefore(n, 3);
+		ll.printLL();
+		// homework test cases/checks below
+		n = new Node(4);
+		System.out.println("\nInserting 4 after the first node: ");
+		ll.insertAfter(n, 1);
+		ll.printLL();
+		n = new Node(8);
+		System.out.println("\nInserting 8 after the 4th node: ");
+		ll.insertAfter(n, 4);
+		ll.printLL();
+		n = new Node(12);
+		System.out.println("\nInserting 12 after the last (th) node: ");
+		ll.insertAfter( n, ll.size() );
+		ll.printLL();
+		
 	}
 }
 
