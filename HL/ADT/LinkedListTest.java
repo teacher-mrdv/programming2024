@@ -55,7 +55,7 @@ public class LinkedListTest
 		ll.insertAfter(n, 4);
 		ll.printLL();
 		n = new Node(12);
-		System.out.println("\nInserting 12 after the last (th) node: ");
+		System.out.println("\nInserting 12 after the last node: ");
 		ll.insertAfter( n, ll.size() );
 		ll.printLL();
 		

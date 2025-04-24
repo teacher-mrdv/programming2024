@@ -78,7 +78,19 @@ public class LinkedList
 		{	System.out.println("ERROR - Insertion place out of bounds!");
 			return;
 		}
-		// your code goes here
+		if(place == 1)
+		{	insert.next = start;
+			start = insert;
+			return;
+		}
+		int counter = 1;
+		Node temp = start;
+		while(counter < place)
+		{	temp = temp.next;
+			counter++;
+		}
+		insert.next = temp.next;
+		temp.next = insert;
 	}
 
 	// more typical IB question than adding a counter to the class
