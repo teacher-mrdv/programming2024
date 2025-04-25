@@ -39,7 +39,7 @@ public class LinkedList
 		}
 		Node previous= start;
 		Node current = start.next;
-		// this part of the method needs improvements!
+		// checking for null is important!
 		while( current.next != null && current.data != delete )
 		{	previous = previous.next;
 			current  = current.next;
@@ -49,6 +49,12 @@ public class LinkedList
 			return true;
 		}
 		return false;
+	}
+
+	public Node removeAt(int place)
+	{
+		// your code goes here
+		return null; // <-- change this too!
 	}
 
 	// insert BEFORE place
