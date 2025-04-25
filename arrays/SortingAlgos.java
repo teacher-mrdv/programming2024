@@ -1,80 +1,108 @@
 /*
  * Sorting algos in Java
- * https://youtu.be/eOPIuDkUkDk?si=WzizpO03foz2S9qT <-- bubble sort
- * https://youtu.be/fWm1R3vU-MM?si=rlY0h6TAw7Q5tB4a <-- selection sort
- * https://youtu.be/kCku5BLI3fo?si=E8HSpU7BFN7VMSWv <-- insertion sort
+ * v2.0 mrdv
  *
  */
 
 
 public class SortingAlgos
 {
-	public static void printArray(int[] a)
+	private static final String BOLD  = "\u001b[1m"; // change to empty strings
+	private static final String RESET = "\u001b[0m"; // if this doesn't work for you
+	
+	public static void printArray(int[] array)
 	{
-		for(int i = 0; i < a.length; i++)
-		{
-			System.out.printf( "[%d]:%d  ",i , a[i]);
+		for(int i = 0; i < array.length; i++)
+		{	System.out.printf( "[%d]:%s%d%s  ", i, BOLD, array[i], RESET);
 		}
 		System.out.println();
 	}
 
-	public static int[] clone(int[] a)
+	public static int[] clone(int[] array)
 	{
-		int[] x = new int[a.length];
-		for(int i = 0; i < a.length; i++)
-		{	x[i] = a[i];
+		int[] x = new int[array.length];
+		for(int i = 0; i < array.length; i++)
+		{	x[i] = array[i];
 		}
 		return x;
 	}
 
-	public static void selectionSort(int[] a)
-	{
-		// finish this for homework. Refer to sorting_algos_SL.pdf and videos^
-		
-	}
-
-	public static void bubbleSort(int[] a)
-	{
-		// finish this for homework. Refer to sorting_algos_SL.pdf and videos^
-		
-	}
-
-	public static void insertionSort(int[] a)
-	{	int c = 0; // counter to evaluate performance
-		int len = a.length;
-		for(int i = 1; i < a.length; i++)
-		{	int temp = a[i];
-			int j = i-1;
-			while(j >= 0 && a[j] > temp)
-			{	c++;
-				a[j+1] = a[j];
-				j--;
-				System.out.print("\t>>> ");	printArray(a); // comment this line for less output
+	public static void selectionSort(int[] array)
+	{	int indexToSort = 0;
+		int comparisons = 0;
+		while( indexToSort < array.length - 1)
+	    {	int smallestIndex = indexToSort;
+			int indexToCheck = smallestIndex + 1;
+			while(indexToCheck < array.length)
+		    {	comparisons++;
+				if( array[indexToCheck] < array[smallestIndex])
+				{	smallestIndex = indexToCheck;
+				}
+				indexToCheck++;
 			}
-			a[j+1] = temp;
+			int temp = array[indexToSort];
+			array[indexToSort] = array[smallestIndex];
+			array[smallestIndex] = temp;
+			indexToSort++;
+			System.out.print("\t>>> ");	printArray(array); // traces the array
+	    }
+	    System.out.println("\tComparisons: " + comparisons);
+	}
+
+	public static void bubbleSort(int[] array)
+	{	int comparisons = 0;
+		int len = array.length;
+		for(int i = 0; i < len-1; i++)
+		{	for(int j = 0; j < len-1-i; j++)
+			{	if( array[j] > array[j + 1])
+				{	comparisons++;
+					int temp = array[j];
+					array[j] = array[j + 1];
+					array[j + 1] = temp;
+					System.out.print("\t>>> ");	printArray(array); // traces the array
+				}
+			}
 		}
-		System.out.println("\tComparisons: " + c);
+		System.out.println("\tComparisons: " + comparisons);
+	}
+
+	public static void insertionSort(int[] array)
+	{
+		int comparisons = 0;
+		int len = array.length;
+		for(int i = 1; i < array.length; i++)
+		{	int temp = array[i];
+			int j = i-1;
+			while(j >= 0 && array[j] > temp)
+			{	comparisons++;
+				array[j+1] = array[j];
+				j--;
+				System.out.print("\t>>> ");	printArray(array); // comment this line for less output; shows changes in the array/traces the array
+			}
+			array[j+1] = temp;
+		}
+		System.out.println("\tComparisons: " + comparisons);
 	}
 
 	public static void main (String[] args)
 	{
-		int[] original = { 7, 1, 2, 6, 5, 3, 4 };
+		int[] original  = { 9, 1, 3, 7, 5, 0 };
 		int[] selection = clone(original);
 		int[] bubble = clone(original);
 		int[] insert = clone(original);
-		System.out.println("\nOriginal array:");
+		System.out.print(BOLD + "\nOriginal array:     " + RESET);
 		printArray(original);
-		System.out.println("\nSelection sort:");
+		System.out.println(BOLD + "\nSelection sort:" + RESET);
 		selectionSort(selection);
-		System.out.println("\nFinal result:");
+		System.out.print(BOLD + "\tFinal result:     " + RESET);
 		printArray(selection);
-		System.out.println("\nBubble sort:");
+		System.out.println(BOLD + "\nBubble sort:" + RESET);
 		bubbleSort(bubble);
-		System.out.println("\nFinal result:");
+		System.out.print(BOLD + "\tFinal result:     " + RESET);
 		printArray(bubble);
-		System.out.println("\nInsertion sort:");
+		System.out.println(BOLD + "\nInsertion sort:" + RESET);
 		insertionSort(insert);
-		System.out.println("\nFinal result:");
+		System.out.print(BOLD + "\tFinal result:     " + RESET);
 		printArray(insert);
 	}
 }
