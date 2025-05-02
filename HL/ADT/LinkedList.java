@@ -51,10 +51,35 @@ public class LinkedList
 		return false;
 	}
 
-	public Node removeAt(int place)
+	public int removeAt(int place)
 	{
-		// your code goes here
-		return null; // <-- change this too!
+		if (isEmpty())
+        {	System.out.println("Error-linked list is empty");
+            return 0;
+        }
+        Node temp = start;
+        int counter = 0;
+        int delData = 0;
+        if( place < 1 || place > size() )
+        {	System.out.println("Error-place out of bounds");
+            return 0;
+		}
+        // redundant! why?
+        if( place == 1 )
+        {	delData = start.data;
+            start = start.next;
+            return delData;
+        }
+        while(temp.next != null) //counter < size() - 1)
+        {	if(counter == place - 1)
+            {	delData = temp.next.data;
+                temp.next = temp.next.next;
+                break; //return delData;
+            }
+            temp = temp.next;
+            counter++;
+        }
+        return delData;
 	}
 
 	// insert BEFORE place
