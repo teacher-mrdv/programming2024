@@ -77,15 +77,12 @@ public class LinkedListPlus
         int counter = 0;
         int delData = 0;
         place = Math.abs(place); // no negatives
-        /* redundant! why?
         if( place == 0 )
-        {
-            delData = start.data;
+        {	delData = start.data;
             start = start.next;
             size--;
             return delData;
         }
-        */
         while(counter < size)
         {
             if(counter == place)
