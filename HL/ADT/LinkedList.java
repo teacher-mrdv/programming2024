@@ -57,28 +57,25 @@ public class LinkedList
         {	System.out.println("Error-linked list is empty");
             return 0;
         }
-        Node temp = start;
-        int counter = 0;
-        int delData = 0;
         if( place < 1 || place > size() )
         {	System.out.println("Error-place out of bounds");
             return 0;
 		}
-        // redundant! why?
+		Node temp = start;
+        int counter = 1;
+        int delData = 0;
         if( place == 1 )
         {	delData = start.data;
             start = start.next;
             return delData;
         }
-        while(temp.next != null) //counter < size() - 1)
-        {	if(counter == place - 1)
-            {	delData = temp.next.data;
-                temp.next = temp.next.next;
-                break; //return delData;
-            }
-            temp = temp.next;
-            counter++;
+        while(counter < place-1)
+        {	temp = temp.next;
+			counter++;
         }
+        Node nodeToDelete = temp.next;
+        delData = nodeToDelete.data;
+        temp.next = nodeToDelete.next;
         return delData;
 	}
 

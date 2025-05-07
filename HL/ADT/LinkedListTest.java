@@ -58,13 +58,14 @@ public class LinkedListTest
 		System.out.println("\nInserting 12 after the last node: ");
 		ll.insertAfter( n, ll.size() );
 		ll.printLL();
-		System.out.println("\nRemoving 1st: " + ll.removeAt(1));
+		System.out.println("\nRemoving 1st node: " + ll.removeAt(1));
 		ll.printLL();
-		System.out.println("\nRemoving 5th: " + ll.removeAt(5));
+		System.out.println("\nRemoving 5th node: " + ll.removeAt(5));
 		ll.printLL();
-		System.out.println("\nRemoving 8th: " + ll.removeAt(8));
+		System.out.println("\nRemoving 8th node: " + ll.removeAt(8));
 		ll.printLL();
-		System.out.println("\nRemoving 10th: " + ll.removeAt(10));
+		System.out.print("\nRemoving 10th node: ");
+		System.out.println(ll.removeAt(10));
 		ll.printLL();
 	}
 }
