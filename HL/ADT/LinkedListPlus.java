@@ -73,9 +73,6 @@ public class LinkedListPlus
             System.out.println("Error-linked list is empty");
             return 0;
         }
-        Node temp = start;
-        int counter = 0;
-        int delData = 0;
         place = Math.abs(place); // no negatives
         if( place == 0 )
         {	delData = start.data;
@@ -83,6 +80,10 @@ public class LinkedListPlus
             size--;
             return delData;
         }
+        Node temp = start;
+        int counter = 1;
+        int delData = 0;
+        
         while(counter < size)
         {
             if(counter == place)
