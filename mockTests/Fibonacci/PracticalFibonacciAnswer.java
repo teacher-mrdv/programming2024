@@ -1,4 +1,4 @@
-public class PracticalFibonacci2
+public class PracticalFibonacciAnswer
 {
 
     public static void main (String[] args)
