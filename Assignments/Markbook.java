@@ -2,7 +2,13 @@ public class Markbook
 {
 	public static final int MAXTESTS = 5; // maximum number of tests per student
 
-
+	/* scoreToGrade: method to convert a percentage to a letter grade
+		85-100 = A
+		75-84  = B
+		65-74  = C
+		50-64  = D
+		<50    = F
+	*/
 	public static String scoreToGrade(double score)
 	{	// score is a % from 0 - 100 inclusive
 		String grade = "";
@@ -17,17 +23,24 @@ public class Markbook
 
 
 	public static String[] calculate(int[][] scores)
-	{	// calculate the average for each student, then
+	{	// calculate the average grade for each student, then
 		// convert it to a letter grade with scoreToGrade method
+		// and put result into a 3rd parallel array (averages)
+        String[] averages = new String[scores.length];
+		// your code goes here
 		return null;
 	}
 
 
 	public static double classAverage(int[][] scores)
-	{	// calculate the class average
-		return 0;
+	{	// calculate the class average based on the 2D array with students scores
+        double sum = 0;		// to add the scores of each student
+		double average = 0; // to store the result
+        // your code goes here
+        return average;
 	}
 
+	// printMarkBookMethod to print the data provided only
 	public static void printMarkBook(String[] names, int[][] scores)
 	{
 		final String TAB = "     ";
@@ -45,7 +58,7 @@ public class Markbook
 		} // end for loop to go through each student
 	} // end printMarkBook
 
-
+	// overloaded printMarkBook method to print all the data
 	public static void printMarkBook(String[] names, int[][] scores, String[] results)
 	{
 		String tab = "\t";
@@ -89,3 +102,30 @@ public class Markbook
 
 } // end class
 
+/* EXPECTED OUTPUT ---------------------------------------
+
+Markbook
+========
+
+Able            85      83      77      91      76      B
+Adam            80      90      95      93      48      B
+Alan            78      81      11      90      73      C
+Geoff           92      83      30      69      87      C
+Jon             23      45      96      38      59      D
+Karl            60      85      45      39      67      D
+Keane           77      31      52      74      83      D
+Louie           93      94      89      77      97      A
+Michael         79      85      28      93      82      C
+Selina          85      72      49      75      63      C
+
+Class average = 70.94 = C
+
+Reflection questions:
+
+What would happen if new student data was added and the array of student names was sorted to keep it organised?
+
+If our arrays were defined with a length of 25,
+	String[] students = new String[25];
+	double[][] scores = new double[25][5];
+can you think about an alternative to adding a "lastIndex" variable to keep track of the end of a partially filled array?
+*/
