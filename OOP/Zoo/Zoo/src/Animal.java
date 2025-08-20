@@ -43,13 +43,14 @@ public class Animal
         int currentYear = today.getYear();
         return currentYear - birthYear;
     }
-    /*
+    /*  different parameter naming style for the constructor
         public Animal(String n, int bY, boolean isD)
         {   name = n;
             birthYear = bY;
             isDangerous = isD;
         }
     */
+
     // empty constructor
     public Animal() { }
 
@@ -60,14 +61,15 @@ public class Animal
         this.isDangerous = isDangerous;
     }
 
+    /*
     @Override
     public String toString()
     {
-        return "Animal\n" +
-                "name: " + name +
+        return "Name: " + name +
                 ", birthYear: " + birthYear +
                 ", Dangerous: " + getDangerous();
     }
+    */
 
     /* It's not recommended to have a main method in
     // blueprint classes

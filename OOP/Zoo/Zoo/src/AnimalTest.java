@@ -15,6 +15,6 @@ public class AnimalTest
         System.out.println(dog.getDangerous());
         // change DOG's name to "Snoopy" and print its name again
         dog.setName("Snoopy");
-        System.out.println(dog);
+        System.out.println(dog.getName());
     }
 }
