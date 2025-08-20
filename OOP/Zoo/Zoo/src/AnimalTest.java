@@ -8,6 +8,8 @@ public class AnimalTest
         //System.out.println(dog); // error because
         dog = new Animal("Fido Dido", 2017, false);
         System.out.println(dog);  // compare before and after toString method is added
+        // no toString() in Animal class: Animal@30f39991 or similar
+        // with toString() in the Animal class: Name: Fido Dido, birthYear: 2017, Dangerous: No
         System.out.println(dog.getName());
         // print the remaining attributes of DOG
         System.out.println(dog.getBirthYear());

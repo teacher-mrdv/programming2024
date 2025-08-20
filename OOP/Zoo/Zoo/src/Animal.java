@@ -37,7 +37,8 @@ public class Animal
             return "No";
     }
 
-    // to do-Date class
+    // calculates the age of the animal in years
+    // USES the Java Date class from util
     public int getAge()
     {   Date today = new Date();
         int currentYear = today.getYear();
@@ -61,7 +62,8 @@ public class Animal
         this.isDangerous = isDangerous;
     }
 
-    /*
+    // provides a String representation of an Animal object
+    // Overrides the toString() method from the Object superclass
     @Override
     public String toString()
     {
@@ -69,16 +71,17 @@ public class Animal
                 ", birthYear: " + birthYear +
                 ", Dangerous: " + getDangerous();
     }
-    */
 
-    /* It's not recommended to have a main method in
-    // blueprint classes
+
+    /* It's not recommended to have a main method in OOP blueprint classes
     public static void main(String[] args)
     {   //Animal dog = new Animal(); // call the empty constructor
         Animal dog; // declaration and initialisation can be broken down or in one line
         //System.out.println(dog); // not initialised error
         dog = new Animal("Fido Dido", 2017, false);
         System.out.println(dog); // compare before and after toString method is added
+        // no toString() in Animal class: Animal@30f39991 or similar
+        // with toString() in the Animal class: Name: Fido Dido, birthYear: 2017, Dangerous: No
         System.out.println(dog.name);  // this is only allowed within this class!
         // print the remaining attributes of dog
         System.out.println(dog.birthYear);
