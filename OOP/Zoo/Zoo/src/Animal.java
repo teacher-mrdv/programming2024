@@ -40,17 +40,10 @@ public class Animal
     // calculates the age of the animal in years
     // USES the Java Date class from util
     public int getAge()
-    {   Date today = new Date();
-        int currentYear = today.getYear();
+    {   Date currentDate = new Date();
+        int currentYear = currentDate.getYear() + 1900;
         return currentYear - birthYear;
     }
-    /*  different parameter naming style for the constructor
-        public Animal(String n, int bY, boolean isD)
-        {   name = n;
-            birthYear = bY;
-            isDangerous = isD;
-        }
-    */
 
     // empty constructor
     public Animal() { }
@@ -62,6 +55,14 @@ public class Animal
         this.isDangerous = isDangerous;
     }
 
+    /*  different parameter naming style for the constructor
+    public Animal(String n, int bY, boolean isD)
+    {   name = n;
+        birthYear = bY;
+        isDangerous = isD;
+    }
+    */
+
     // provides a String representation of an Animal object
     // Overrides the toString() method from the Object superclass
     @Override
@@ -72,6 +73,15 @@ public class Animal
                 ", Dangerous: " + getDangerous();
     }
 
+    public void talk()
+    {
+        System.out.println(this.name + " doesn't talk.");
+    }
+
+    public void eat()
+    {
+        System.out.println("munch munch");
+    }
 
     /* It's not recommended to have a main method in OOP blueprint classes
     public static void main(String[] args)
