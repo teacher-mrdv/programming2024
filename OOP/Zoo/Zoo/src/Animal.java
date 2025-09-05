@@ -6,6 +6,22 @@ public class Animal
     private int birthYear;
     private boolean isDangerous;
 
+    // empty constructor
+    public Animal() { }
+
+    // custom constructor
+    public Animal(String name, int birthYear, boolean isDangerous)
+    {   this.name = name;
+        this.birthYear = birthYear;
+        this.isDangerous = isDangerous;
+    }
+
+    public Animal(String name, int birthYear)
+    {   this.name = name;
+        this.birthYear = birthYear;
+        this.isDangerous = false;
+    }
+
     public String getName()
     {   return name;
     }
@@ -45,16 +61,6 @@ public class Animal
         return currentYear - birthYear;
     }
 
-    // empty constructor
-    public Animal() { }
-
-    // custom constructor
-    public Animal(String name, int birthYear, boolean isDangerous)
-    {   this.name = name;
-        this.birthYear = birthYear;
-        this.isDangerous = isDangerous;
-    }
-
     /*  different parameter naming style for the constructor
     public Animal(String n, int bY, boolean isD)
     {   name = n;
@@ -74,13 +80,11 @@ public class Animal
     }
 
     public void talk()
-    {
-        System.out.println(this.name + " doesn't talk.");
+    {   System.out.println(this.name + " doesn't talk.");
     }
 
     public void eat()
-    {
-        System.out.println("munch munch");
+    {   System.out.println(name + " doesn't eat");
     }
 
     /* It's not recommended to have a main method in OOP blueprint classes

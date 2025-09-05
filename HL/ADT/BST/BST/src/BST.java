@@ -52,4 +52,30 @@ public class BST
             }
         }
     }
+
+    public boolean search(int search)
+    {   if(isEmpty())
+        {   return false;
+        }
+        return search(root, search);
+    }
+
+    private boolean search(BTNode node, int search)
+    {
+        if (node.getData() == search)
+        {   return true;
+        }
+        if (search > node.getData())
+        {   if (node.getRight() != null)
+            {   return search(node.getRight(), search);
+            }
+        } else if (search < node.getData())
+        {   if (node.getLeft() != null)
+            {   return search(node.getLeft(), search);
+            }
+        }
+        return false;
+    }
+
+
 }

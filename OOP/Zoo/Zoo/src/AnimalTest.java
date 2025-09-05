@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 // no animals were harmed during the development of this class
 public class AnimalTest
 {
@@ -18,9 +20,15 @@ public class AnimalTest
         // change DOG's name to "Snoopy" and print its name again
         dog.setName("Snoopy");
         System.out.println(dog.getName());
-        System.out.println(dog.toString());
         System.out.println(dog.getAge());
+        System.out.println(dog.toString());
         dog.talk();
         dog.eat();
+        /*Scanner input = new Scanner(System.in);
+        int x = input.nextInt(); // nextInt() is a non-static method
+        System.out.println( Math.sqrt(x) ); // sqrt() is a static method
+        input.close();
+        Animal cat = new Animal(); // empty constructor
+        System.out.println(cat); */
     }
 }
