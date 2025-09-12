@@ -22,7 +22,7 @@ public class Cat extends Animal
     }
 
     public String toString() {
-        return super.toString() + "    Coat: " +
+        return super.toString() + ", Coat: " +
                 this.getCoat();
     }
 
