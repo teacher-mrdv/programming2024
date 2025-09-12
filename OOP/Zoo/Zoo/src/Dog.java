@@ -9,14 +9,17 @@ public class Dog extends Animal
         this.breed = breed;
     }
 
+    public Dog(String name, int birthYear, String breed)
+    {   super(name, birthYear);
+        this.breed = breed;
+    }
+
     public String getBreed()
-    {
-        return breed;
+    {   return breed;
     }
 
     public void setBreed(String breed)
-    {
-        this.breed = breed;
+    {   this.breed = breed;
     }
 
     @Override
@@ -31,6 +34,7 @@ public class Dog extends Animal
 
     @Override
     public String toString()
-    {    return  super.toString() + "     breed='" + breed;
+    {    return  super.toString() +
+            "     breed: " + breed;
     }
 }

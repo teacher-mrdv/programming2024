@@ -11,6 +11,9 @@ public class BSTTest
         numbers.addNode(8);
         numbers.addNode(0);
         numbers.addNode(11);
+        numbers.preOrder();
+        //numbers.inOrder();
+        //numbers.postOrder();
         System.out.println("Input a couple of ints to search for:");
         Scanner in = new Scanner(System.in);
         System.out.print("First int = ");

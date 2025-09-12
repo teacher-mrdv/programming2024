@@ -55,7 +55,7 @@ public class Animal
 
     // calculates the age of the animal in years
     // USES the Java Date class from util
-    public int getAge()
+    public int calculateAge()
     {   Date currentDate = new Date();
         int currentYear = currentDate.getYear() + 1900;
         return currentYear - birthYear;

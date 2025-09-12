@@ -77,5 +77,42 @@ public class BST
         return false;
     }
 
+    public void preOrder()
+    {
+        if (!isEmpty())
+            preOrder(root);
+        else
+        {
+            System.out.println("empty tree. can't go on.");
+        }
+    }
+    public void preOrder(BTNode node)
+    {
+        System.out.println(node);
+        if (node.getLeft() != null)
+            preOrder(node.getLeft());
+        if (node.getRight() != null)
+            preOrder(node.getRight());
+    }
+
+    public void inOrder(BTNode node)
+    {
+        if (node.getLeft() != null)
+        {   preOrder(node.getLeft());
+        }
+        System.out.println(node);
+        if (node.getRight() != null)
+        {   preOrder(node.getRight());
+        }
+    }
+
+    public void postOrder(BTNode node)
+    {
+        if (node.getLeft() != null)
+            preOrder(node.getLeft());
+        if (node.getRight() != null)
+            preOrder(node.getRight());
+        System.out.println(node);
+    }
 
 }
