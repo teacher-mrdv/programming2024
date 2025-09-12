@@ -4,10 +4,13 @@ public class DogTest
     {
         Dog diciembre =
                 new Dog("Diciembre", 2022,
-                        false, "terrier");
+                        false, "Pomeranian");
         System.out.println(diciembre); // this tests toString() implicitly
-        diciembre.setBreed("Cerberus");
+        diciembre.setBreed("Vampire Pomeranian");
+        diciembre.setDangerous(true); // we can use public methods from the superclass
         System.out.println(diciembre.getBreed());
         System.out.println(diciembre);
+        diciembre.eat();
+        diciembre.talk();
     }
 }
