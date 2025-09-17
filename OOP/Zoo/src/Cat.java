@@ -33,4 +33,9 @@ public class Cat extends Animal
     public void eat() {
         System.out.println("Nibble nibble");
     }
+
+    public boolean equals(Cat cat2) {
+        return this.getName().equalsIgnoreCase(cat2.getName()) &&
+                this.getBirthYear() == cat2.getBirthYear();
+    }
 }
