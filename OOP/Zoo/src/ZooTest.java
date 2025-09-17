@@ -14,7 +14,7 @@ public class ZooTest {
         sgZoo.addAnimal(cujo);
         sgZoo.addAnimal(catty);
         Cat garfield = new Cat("Garfield", 1978, "Orange");
-        Cat garfieldo = new Cat("Garfieldo", 1978, "Orange");
+        Cat garfieldo = new Cat("Garfield", 1978, "Orange");
         System.out.println("cujo == pup? " + (cujo == pup));
         System.out.println(cujo.hashCode() + " == " +
                 pup.hashCode() + " : " +
