@@ -7,6 +7,11 @@ public class Fraction {
         this.denominator = denominator;
     }
 
+    public void print() {
+        System.out.println(numerator + "/" + denominator);
+    }
+
+    // this replaces the print method
     public String toString() {
         return numerator + "/" + denominator;
     }
