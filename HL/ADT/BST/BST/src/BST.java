@@ -1,6 +1,7 @@
 public class BST
 {
     private BTNode root;
+    public static int c = 0;
 
     public BST(int rootData)
     {   //BTNode newNode = new BTNode(rootData);
@@ -62,6 +63,7 @@ public class BST
 
     private boolean search(BTNode node, int search)
     {
+        c++;
         if (node.getData() == search)
         {   return true;
         }
@@ -78,31 +80,46 @@ public class BST
     }
 
     public void preOrder()
-    {
-        if (!isEmpty())
+    {   if (!isEmpty())
             preOrder(root);
         else
-        {
-            System.out.println("empty tree. can't go on.");
+        {   System.out.println("empty tree. can't go on.");
         }
     }
+
     public void preOrder(BTNode node)
     {
-        System.out.println(node);
+        System.out.print(node + " ");
         if (node.getLeft() != null)
             preOrder(node.getLeft());
         if (node.getRight() != null)
             preOrder(node.getRight());
     }
 
+    public void inOrder()
+    {   if (!isEmpty())
+            inOrder(root);
+        else
+        {   System.out.println("empty tree. can't go on.");
+        }
+    }
+
     public void inOrder(BTNode node)
     {
         if (node.getLeft() != null)
-        {   preOrder(node.getLeft());
+        {   inOrder(node.getLeft());
         }
-        System.out.println(node);
+        System.out.print(node + " ");
         if (node.getRight() != null)
-        {   preOrder(node.getRight());
+        {   inOrder(node.getRight());
+        }
+    }
+
+    public void postOrder()
+    {   if (!isEmpty())
+            postOrder(root);
+        else
+        {   System.out.println("empty tree. can't go on.");
         }
     }
 
@@ -112,7 +129,7 @@ public class BST
             preOrder(node.getLeft());
         if (node.getRight() != null)
             preOrder(node.getRight());
-        System.out.println(node);
+        System.out.print(node + " ");
     }
 
 }
