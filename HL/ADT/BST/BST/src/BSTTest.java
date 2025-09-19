@@ -22,12 +22,12 @@ public class BSTTest
         System.out.print("First int = ");
         int search = in.nextInt();
         System.out.println( "Found? " + numbers.search(search));
-        System.out.println(BST.c);
+        System.out.println(numbers.c);
         System.out.print("Second int = ");
         search = in.nextInt();
-        BST.c = 0;
+        numbers.c = 0;
         System.out.println( "Found? " + numbers.search(search));
-        System.out.println(BST.c);
+        System.out.println(numbers.c);
         in.close();
     }
 }

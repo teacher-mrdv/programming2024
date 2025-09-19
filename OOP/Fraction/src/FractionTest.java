@@ -4,6 +4,7 @@ public class FractionTest {
         Fraction f = new Fraction(1, 3);
 
         System.out.println(f);
-        System.out.println("num = " + f.numerator + " den = " + f.denominator);
+        System.out.println("num = " + f.numerator +
+                " den = " + f.denominator);
     }
 }

@@ -1,7 +1,7 @@
 public class BST
 {
     private BTNode root;
-    public static int c = 0;
+    public int c = 0;
 
     public BST(int rootData)
     {   //BTNode newNode = new BTNode(rootData);
