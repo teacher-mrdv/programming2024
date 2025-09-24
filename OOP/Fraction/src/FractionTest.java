@@ -5,8 +5,12 @@ public class FractionTest {
 
         System.out.println(f);
         f.print();
-        //System.out.println("num = " + f.numerator);
-        //        " den = " + f.denominator);
-        System.out.println("num = " +  f.getNumerator());
+        // post-data hiding, the line below stop working
+        //System.out.println("num = " + f.numerator + " den = " + f.denominator);
+        f.setNumerator(2); f.setDenominator(4);
+        System.out.println(f.getNumerator() + "\n-\n" + f.getDenominator());
+        Fraction g = new Fraction(); // this requires an empty constructor
+        g.enter();
+        System.out.println(g);
     }
 }
