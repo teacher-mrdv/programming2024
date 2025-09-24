@@ -1,3 +1,9 @@
+/*
+ * CHAPTER 11 - OOP Fraction
+ * DO NOT USE AI, Generate Code, Encapsulate Fields or
+ * any code automation option for these OOP chapters of the worksheets
+ * (chapters 11~14)
+ */
 import java.util.Scanner;
 
 public class Fraction {
