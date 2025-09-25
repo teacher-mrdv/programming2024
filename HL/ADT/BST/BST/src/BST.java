@@ -132,4 +132,6 @@ public class BST
         System.out.print(node + " ");
     }
 
+    // how to count all the nodes in a tree?
+    // how to count all the leaves in a tree?
 }

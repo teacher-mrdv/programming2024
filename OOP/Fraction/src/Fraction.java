@@ -4,16 +4,21 @@
  * any code automation option for these OOP chapters of the worksheets
  * (chapters 11~14)
  */
+
+/* TO DO: ************************************************\
+ * simplify, add, toDecimal METHODS
+ * for an additional challenge, you may want to write
+ * a method to create a fraction from a decimal number ???
+ *********************************************************/
+
 import java.util.Scanner;
 
 public class Fraction {
     private int numerator;
     private int denominator;
 
-    public Fraction() {
-        numerator   = 0;
-        denominator = 1;
-    }
+    public Fraction() { } // empty constructor
+
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
@@ -45,10 +50,11 @@ public class Fraction {
     public void enter() {
         Scanner input = new Scanner(System.in); // Scanner for input
         System.out.print("Enter fraction in a/b format: ");
-        String fractionString = input.nextLine();
+        String fractionString = input.next();
         input.close(); // when we are done inputting
-        fractionString = fractionString.replace("/", " "); // Changes slash to space for parsing with Scanner
-        // Scanner for parsing a String
+        // Changes slash to space for parsing with Scanner (line below)
+        fractionString = fractionString.replace("/", " ");
+        // Scanner for parsing a String and extracting 2 integers
         Scanner parse = new Scanner(fractionString);
         numerator   = parse.nextInt();
         denominator = parse.nextInt();
@@ -56,14 +62,14 @@ public class Fraction {
         //this.simplify(); // <<< uncomment after you complete problem 11.2
     }
 
-    // HL recursive version
+    // HL recursive version - GCD to help simplify and add fractions
     private static int GCD(int a, int b) {
         if (a == 0)
             return b;
         return GCD(b % a, a);
     }
 
-    // calculate the GCD to simplify a fraction
+    // calculate the GCD  to help simplify and add fractions
     // SL version (iterative -- while loop)
     private static int gcd(int n, int m) {
         int gcd;
