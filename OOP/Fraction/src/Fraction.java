@@ -63,15 +63,15 @@ public class Fraction {
     }
 
     // HL recursive version - GCD to help simplify and add fractions
-    private static int GCD(int a, int b) {
+    private static int gcdHL(int a, int b) {
         if (a == 0)
             return b;
-        return GCD(b % a, a);
+        return gcdHL(b % a, a);
     }
 
     // calculate the GCD  to help simplify and add fractions
     // SL version (iterative -- while loop)
-    private static int gcd(int n, int m) {
+    private static int gcdSL(int n, int m) {
         int gcd;
         if ( n == m )
             gcd = n;
@@ -84,6 +84,25 @@ public class Fraction {
             }
         }
         return n;
+    }
+
+    // sumFraction.add(fraction1, fraction2)
+    // adds fraction1 and fraction2 and places the result in sumFraction
+    // this stands for sumFraction in the code below
+    public void add(Fraction one, Fraction two) {
+        int num = one.numerator * two.denominator;
+        int den = one.denominator * two.numerator;
+        this.numerator   = num;
+        this.denominator = den;
+    }
+
+    // fraction1.add(fraction2) -> new Fraction with the sum
+    // this is fraction1 in the code below and two is fraction2
+    public Fraction add(Fraction two) {
+        int num = this.numerator * two.denominator;
+        int den = this.denominator * two.numerator;
+        Fraction result = new Fraction(num, den);
+        return result;
     }
 
     // this replaces the print method

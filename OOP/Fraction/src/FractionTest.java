@@ -2,7 +2,7 @@
 public class FractionTest {
     public static void main(String[] args) {
         // testing of essential contructors and methods
-        Fraction f = new Fraction(1, 3);
+        Fraction f = new Fraction(3, 4);
         System.out.println(f);
         f.print();
         // post-data hiding, the line below stop working
