@@ -22,6 +22,7 @@ public class Fraction {
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
+        this.simplify();
     }
 
     public int getNumerator() {
@@ -30,6 +31,7 @@ public class Fraction {
 
     public void setNumerator(int numerator) {
         this.numerator = numerator;
+        this.simplify(); // optional, but to keep the fraction simplified
     }
 
     public int getDenominator() {
@@ -39,27 +41,35 @@ public class Fraction {
     public void setDenominator(int denominator) {
         if(denominator != 0) {
             this.denominator = denominator;
+            simplify(); // this. is optional here
+            // optional, but to keep the fraction simplified
         }
     }
 
+    // toString() is a better alternative to this
     public void print() {
         System.out.println(numerator + "/" + denominator);
     }
 
     // inputs two integers and sets them as num and den of the fraction object
+    // this is normally written in the test class, though.
     public void enter() {
         Scanner input = new Scanner(System.in); // Scanner for input
         System.out.print("Enter fraction in a/b format: ");
-        String fractionString = input.next();
-        input.close(); // when we are done inputting
+        String fractionString = input.nextLine();
         // Changes slash to space for parsing with Scanner (line below)
         fractionString = fractionString.replace("/", " ");
         // Scanner for parsing a String and extracting 2 integers
         Scanner parse = new Scanner(fractionString);
         numerator   = parse.nextInt();
         denominator = parse.nextInt();
-        parse.close(); // when we are done parsing
-        //this.simplify(); // <<< uncomment after you complete problem 11.2
+        this.simplify();
+    }
+
+    public void simplify() {
+        int gcd = gcdSL(numerator, denominator);
+        numerator = numerator / gcd;
+        denominator = denominator / gcd;
     }
 
     // HL recursive version - GCD to help simplify and add fractions
@@ -90,23 +100,33 @@ public class Fraction {
     // adds fraction1 and fraction2 and places the result in sumFraction
     // this stands for sumFraction in the code below
     public void add(Fraction one, Fraction two) {
-        int num = one.numerator * two.denominator;
-        int den = one.denominator * two.numerator;
-        this.numerator   = num;
-        this.denominator = den;
+        int n = one.numerator * two.denominator;
+        int m = one.denominator * two.numerator;
+        this.numerator   = n + m;
+        this.denominator = one.denominator * two.denominator;
+        this.simplify();
     }
 
     // fraction1.add(fraction2) -> new Fraction with the sum
     // this is fraction1 in the code below and two is fraction2
     public Fraction add(Fraction two) {
-        int num = this.numerator * two.denominator;
-        int den = this.denominator * two.numerator;
-        Fraction result = new Fraction(num, den);
+        int n = this.numerator * two.denominator;
+        int m = this.denominator * two.numerator;
+        Fraction result = new Fraction(n + m,
+                this.denominator*two.denominator);
         return result;
     }
 
     // this replaces the print method
     public String toString() {
         return numerator + "/" + denominator;
+    }
+
+    public double toDecimal() {
+        return (double)numerator / denominator;
+    }
+
+    public boolean equals(Fraction two) {
+        return this.toDecimal() == two.toDecimal();
     }
 }

@@ -14,13 +14,17 @@ public class FractionTest {
         g.enter();
         System.out.print(g);
         // testing of add, simplify, toDecimal methods
-        /* g.simplify();
-        System.out.println(" simplified = " + g);
+        // g.simplify();
+        //System.out.println(" simplified = " + g);
         System.out.println("\nAdding two fractions:");
         f.enter();
         g.enter();
         System.out.println(f + " + " + g + " = " + f.add(g) );
-        */
+
+        Fraction sum = new Fraction();
+        sum.add(f, g);
+        System.out.println(sum);
+
         //FractionPlus y = FractionPlus.enter(); // easier! Check the FractionPlus class
         //FractionPlus z = FractionPlus.enter();
         //System.out.println( y + " == " + z + " ? " + y.equals(z) );
