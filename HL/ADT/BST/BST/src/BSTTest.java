@@ -11,6 +11,9 @@ public class BSTTest
         numbers.addNode(8);
         numbers.addNode(0);
         numbers.addNode(11);
+        System.out.println("Size   = " + numbers.size(numbers.getRoot()));
+        System.out.println("Leaves = " + numbers.leaves(numbers.getRoot()));
+        System.out.println("Non-Leaves = " + numbers.nonLeaves(numbers.getRoot()));
         numbers.preOrder();
         System.out.println();
         numbers.inOrder();
@@ -22,12 +25,10 @@ public class BSTTest
         System.out.print("First int = ");
         int search = in.nextInt();
         System.out.println( "Found? " + numbers.search(search));
-        System.out.println(numbers.c);
         System.out.print("Second int = ");
         search = in.nextInt();
-        numbers.c = 0;
+        System.out.println(numbers.size(numbers.getRoot()));
         System.out.println( "Found? " + numbers.search(search));
-        System.out.println(numbers.c);
         in.close();
     }
 }

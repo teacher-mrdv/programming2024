@@ -1,7 +1,6 @@
 public class BST
 {
     private BTNode root;
-    public int c = 0;
 
     public BST(int rootData)
     {   //BTNode newNode = new BTNode(rootData);
@@ -16,6 +15,10 @@ public class BST
     {   this.root = root;
         System.out.println("--> Inserted " +
                 root.getData() + " as the root");
+    }
+
+    public BTNode getRoot() {
+        return root;
     }
 
     public boolean isEmpty()
@@ -63,7 +66,6 @@ public class BST
 
     private boolean search(BTNode node, int search)
     {
-        c++;
         if (node.getData() == search)
         {   return true;
         }
@@ -126,12 +128,34 @@ public class BST
     public void postOrder(BTNode node)
     {
         if (node.getLeft() != null)
-            preOrder(node.getLeft());
+            postOrder(node.getLeft());
         if (node.getRight() != null)
-            preOrder(node.getRight());
+            postOrder(node.getRight());
         System.out.print(node + " ");
     }
 
     // how to count all the nodes in a tree?
+    public int size(BTNode node) {
+        if(node == null) {
+            return 0;
+        }
+        System.out.print(">" + node.getData() + " ");
+        return 1 + size(node.getLeft()) + size(node.getRight()) ;
+    }
+
     // how to count all the leaves in a tree?
+    public int leaves(BTNode node) {
+        if(node == null) {
+            return 0;
+        }
+        System.out.print(">" + node.getData() + " ");
+        if(node.getLeft() == null && node.getRight() == null) {
+            return 1;
+        }
+        return leaves(node.getLeft()) + leaves(node.getRight());
+    }
+
+    public int nonLeaves(BTNode node) {
+        return -1; /// to do
+    }
 }
