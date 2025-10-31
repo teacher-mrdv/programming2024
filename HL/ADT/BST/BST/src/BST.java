@@ -156,6 +156,11 @@ public class BST
     }
 
     public int nonLeaves(BTNode node) {
-        return -1; /// to do
+        if(node == null ||
+        (node.getLeft() == null && node.getRight() == null)) {
+            return 0;
+        }
+        System.out.print(">" + node.getData() + " ");
+        return 1 + nonLeaves(node.getLeft()) + nonLeaves(node.getRight());
     }
 }
