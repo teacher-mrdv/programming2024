@@ -2,13 +2,37 @@ import java.util.Arrays;
 
 public class CollectionDemo
 {
+    // global to make it easier to access by all methods
 	static Collection list = new Collection();
+
+    /* This is how you would add an item to a specific collection...
+     * a collection object, a collection that already exists...
+     * (it has already been instantiated) WITHOUT changing the Collection class
+     * Without the definition of the collection itself, which we can't do...
+     * ...in IB papers (both 1 and 2).
+     */
+    public static void add(String data)
+    {	Item newItem = new Item(data);
+        System.out.println("Adding " + data + " to the list collection");
+        if( list.isEmpty() ) // add first element
+        {	list.setStart(newItem);
+            list.setCurrent(list.getStart());
+        } else {
+            list.resetNext();
+            // do not confuse Collection's hasNext() with
+            // the Item's hasNext()
+            while( list.hasNext() )
+            {	System.out.println(list.getNext());
+            }
+            list.getCurrent().setNext(newItem);
+        }
+    }
 
 	// how to calculate the size of a collection outside the Collection class
 	public static int collectionSize(Collection c)
-	{	int counter = 0;
+	{	int counter = 1; // we are starting at item #1, the beginning
 		Item temp = c.getStart(); // Element = Node; start @ the beginning of the collection
-		while(temp != null)
+		while(temp.hasNext())
 		{	counter++;
 			temp = temp.getNext();
 		}
@@ -28,6 +52,8 @@ public class CollectionDemo
 		list.addItem("Jill"); System.out.println(list);
 		System.out.println("Add Kyle to the collection");
 		list.addItem("Kyle");
+        System.out.println("Add Cole to the collection");
+        list.addItem("Cole");
 
 
 		add("Daniel");
@@ -44,28 +70,9 @@ public class CollectionDemo
 		{	names[i] = list.getNext();
 		}
 		System.out.println(Arrays.toString(names));
+        Arrays.sort(names);
+        System.out.println(Arrays.toString(names));
+
 	}
 
-	/* This is how you would add an item to a specific collection...
-	 * a collection object, a collection that already exists...
-	 * (it has already been instantiated) WITHOUT changing the Collection class
-	 * Without the definition of the collection itself, which we can't do...
-	 * ...in IB papers (both 1 and 2).
-	 */
-	public static void add(String data)
-	{	Item newItem = new Item(data);
-		System.out.println("Adding " + data + " to the list collection");
-		if( list.isEmpty() ) // add first element
-		{	list.setStart(newItem);
-			list.setCurrent(list.getStart());
-		} else {
-			list.resetNext();
-			// do not confuse Collection's hasNext() with
-			// the Item's hasNext()
-			while( list.hasNext() )
-			{	System.out.println(list.getNext());
-			}
-			list.getCurrent().setNext(newItem);
-		}
-	}
 }
