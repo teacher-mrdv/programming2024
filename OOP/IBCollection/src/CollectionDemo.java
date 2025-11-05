@@ -1,9 +1,8 @@
 import java.util.Arrays;
 
-public class CollectionDemo
-{
+public class CollectionDemo {
     // global to make it easier to access by all methods
-	static Collection list = new Collection();
+    static Collection list = new Collection();
 
     /* This is how you would add an item to a specific collection...
      * a collection object, a collection that already exists...
@@ -11,68 +10,86 @@ public class CollectionDemo
      * Without the definition of the collection itself, which we can't do...
      * ...in IB papers (both 1 and 2).
      */
-    public static void add(String data)
-    {	Item newItem = new Item(data);
+    public static void add(String data) {
+        Item newItem = new Item(data);
         System.out.println("Adding " + data + " to the list collection");
-        if( list.isEmpty() ) // add first element
-        {	list.setStart(newItem);
+        if (list.isEmpty()) // add first element
+        {
+            list.setStart(newItem);
             list.setCurrent(list.getStart());
         } else {
             list.resetNext();
             // do not confuse Collection's hasNext() with
             // the Item's hasNext()
-            while( list.hasNext() )
-            {	System.out.println(list.getNext());
+            while (list.hasNext()) {
+                System.out.println(list.getNext());
             }
             list.getCurrent().setNext(newItem);
         }
     }
 
-	// how to calculate the size of a collection outside the Collection class
-	public static int collectionSize(Collection c)
-	{	int counter = 1; // we are starting at item #1, the beginning
-		Item temp = c.getStart(); // Element = Node; start @ the beginning of the collection
-		while(temp.hasNext())
-		{	counter++;
-			temp = temp.getNext();
-		}
-		return counter;
-	}
+    // how to calculate the size of a collection outside the Collection class
+    public static int collectionSize(Collection c) {
+        int counter = 1; // we are starting at item #1, the beginning
+        Item temp = c.getStart(); // Element = Node; start @ the beginning of the collection
+        while (temp.hasNext()) {
+            counter++;
+            temp = temp.getNext();
+        }
+        return counter;
+    }
 
-	public static void main (String[] args)
-	{
+    public static void main(String[] args) {
 
-		System.out.println("Add Ada to the collection");
-		list.addItem("Ada"); System.out.println(list);
-		System.out.println("Ali Ada to the collection");
-		list.addItem("Ali"); System.out.println(list);
-		System.out.println("Add Bob to the collection");
-		list.addItem("Bob"); System.out.println(list);
-		System.out.println("Add Jill to the collection");
-		list.addItem("Jill"); System.out.println(list);
-		System.out.println("Add Kyle to the collection");
-		list.addItem("Kyle");
+        System.out.println("Add Ada to the collection");
+        list.addItem("Ada");
+        System.out.println(list);
+        System.out.println("Add Bob to the collection");
+        list.addItem("Bob");
+        System.out.println(list);
+        System.out.println("Add Jill to the collection");
+        list.addItem("Jill");
+        System.out.println(list);
+        System.out.println("Add Kyle to the collection");
+        list.addItem("Kyle");
+        System.out.println(list);
         System.out.println("Add Cole to the collection");
         list.addItem("Cole");
+        System.out.println(list);
+        System.out.println("Ali to the collection");
+        list.addItem("Ali");
+        System.out.println(list);
+        System.out.println("Add Daniel to the collection (local add method)");
+        add("Daniel");
 
+        System.out.println(list);
+        System.out.print("collectionSize(list) = ");
+        System.out.println(collectionSize(list));
+        System.out.print("list.size() = ");
+        System.out.println(list.size());
 
-		add("Daniel");
-
-		System.out.println(list);
-		System.out.print("collectionSize(list) = ");
-		System.out.println(collectionSize(list));
-		System.out.print("list.size() = ");
-		System.out.println(list.size());
-
-		String[] names = new String[collectionSize(list)];
-		list.resetNext();
-		for(int i = 0; i < collectionSize(list); i++)
-		{	names[i] = list.getNext();
-		}
-		System.out.println(Arrays.toString(names));
-        Arrays.sort(names);
+        // how to sort a collection?
+        // calculate the size of the collection and create an array
+        // copy collection into array, sort array, put array back into the collection
+        String[] names = new String[collectionSize(list)];
+        list.resetNext();
+        for (int i = 0; i < collectionSize(list); i++) {
+            names[i] = list.getNext();
+        }
+        System.out.println("Array copied from collection");
         System.out.println(Arrays.toString(names));
-
-	}
+        Arrays.sort(names); // sort the array (it only works with primitives and Strings)
+        System.out.println("Sorted array");
+        System.out.println(Arrays.toString(names));
+        // delete the old unsorted list/put a new empty collection in it
+        // otherwise we'd add the sorted array to the unsorted collection
+        list = new Collection();
+        // copying sorted array back into the collection
+        for (int i = 0; i < names.length; i++) {
+            list.addItem(names[i]);
+        }
+        // print the final, sorted collection
+        System.out.println(list);
+    }
 
 }
