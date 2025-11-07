@@ -3,7 +3,7 @@
  * Note that head recursion isn't feasible
  * with fruitful recursive methods (non-void)
  *
- * This links to our binary trees topic
+ * This links to our binary trees topic as well
  *
  */
 public class RecursionDemos {
@@ -105,10 +105,10 @@ public class RecursionDemos {
 				  madness(2)
 				 /          \
 				/            \
-		Call madness(1) p Call madness(1)
-			   /    \           /     \
-			  /      \         /       \
-		Call m(0)pCall m(0) Call m(0)pCall m(0)
+		Call madness(1) p(2) Call madness(1)
+		      /     \            /          \
+		     /       \          /            \
+		Call m(0)p(1)Call m(0) Call m(0)p(1)Call m(0)
 
 		1.  madness(2) starts.
 		2.  It must call madness(1) (left branch) first.
@@ -184,11 +184,11 @@ public class RecursionDemos {
 				   madness(3)
 				 /     |      \
 				/      |       \
-		  madness(2)  print(3)   madness(2)
-		   /  |  \                 /    |   \
-		  /   |   \               /     |    \__
+		  madness(2)  print(3)    madness(2)__
+		   /  |  \                 /    |     \
+		  /   |   \               /     |      \
 		m(1) p(2)  m(1)           m(1)  p(2)    m(1)
-		/|\        / | \          / |\         / | \
-	   / | \      /  |  \        /  | \       /  |  \
-	m(0)p(1)m(0) m(0)p(1)m(0) m(0)p(1)m(0) m(0)p(1)m(0)
+        /|\        / | \          / |\         / | \
+       / | \      /  |  \        /  | \       /  |  \
+    m(0)p(1)m(0) m(0)p(1)m(0) m(0)p(1)m(0) m(0)p(1)m(0)
 */
