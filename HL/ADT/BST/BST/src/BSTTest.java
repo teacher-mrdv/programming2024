@@ -32,3 +32,12 @@ public class BSTTest
         in.close();
     }
 }
+/* this is the visual representation of the resulting tree:
+
+     5
+   /   \
+  2     9
+/  \   / \
+0  3  8   11
+
+ */

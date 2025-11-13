@@ -24,6 +24,15 @@ public class RecursionDemos {
 		}
 	}
 
+	// factorial example without the pretty output -- tail recursion example
+	public static int fact(int n) {
+		if(n == 0) {
+			return 1;
+		} else {
+			return n * factorial(n-1);
+		}
+	}
+
 	// our typical tree recursion example
 	public static int fibo(int n) {
 		//System.out.println( ">>> " + n );
@@ -51,6 +60,14 @@ public class RecursionDemos {
 		countUp(n-1);
 		System.out.println(n);
 	}
+
+	/*/ head recursion here doesn't work because we have to return an integer
+	public static int countUp2(int n) {
+		if( n == 0 )
+			return 1;
+		return countUp2(n-1);
+		System.out.println(n);
+	} */
 
 	// trace in class
 	public static void count(int start, int end) {
