@@ -19,11 +19,9 @@ public class CollectionDemo {
             list.setCurrent(list.getStart());
         } else {
             list.resetNext();
-            // do not confuse Collection's hasNext() with
-            // the Item's hasNext()
-            while (list.hasNext()) {
-                System.out.println(list.getNext());
-            }
+            do {
+                list.getNext();
+            } while (list.getCurrent().getNext() != null);
             list.getCurrent().setNext(newItem);
         }
     }
@@ -31,14 +29,35 @@ public class CollectionDemo {
     // how to calculate the size of a collection outside the Collection class
     public static int collectionSize(Collection c) {
         int counter = 1; // we are starting at item #1, the beginning
-        Item temp = c.getStart(); // Element = Node; start @ the beginning of the collection
-        while (temp.hasNext()) {
+        c.resetNext(); // Element = Node; start @ the beginning of the collection
+        while (c.hasNext()) {
             counter++;
-            temp = temp.getNext();
+            c.getNext();
         }
         return counter;
     }
 
+    public static void printCollection(Collection c) {
+        c.resetNext();
+        System.out.print(">>> ");
+        while(c.hasNext()) {
+            System.out.print(c.getNext() + " ");
+        }
+        System.out.println(c.getNext());
+    }
+
+    // create a collection of names starting with a string
+    public static Collection filter(Collection c, String s) {
+        Collection result = new Collection();
+        c.resetNext();
+        while(c.getCurrent() != null) {;
+            String temp = c.getNext();
+            if(temp.startsWith(s)) {
+                result.addItem(temp);
+            }
+        }
+        return result;
+    }
     public static void main(String[] args) {
 
         System.out.println("Add Ada to the collection");
@@ -62,18 +81,21 @@ public class CollectionDemo {
         System.out.println("Add Daniel to the collection (local add method)");
         add("Daniel");
 
-        System.out.println(list);
+        //System.out.println(list); // via toString()
+        printCollection(list);
         System.out.print("collectionSize(list) = ");
         System.out.println(collectionSize(list));
         System.out.print("list.size() = ");
         System.out.println(list.size());
 
+        System.out.println("Names starting with A: " + filter(list, "A"));
         // how to sort a collection?
         // calculate the size of the collection and create an array
         // copy collection into array, sort array, put array back into the collection
-        String[] names = new String[collectionSize(list)];
+        int arrayLength = collectionSize(list);
+        String[] names = new String[arrayLength];
         list.resetNext();
-        for (int i = 0; i < collectionSize(list); i++) {
+        for (int i = 0; i < arrayLength; i++) {
             names[i] = list.getNext();
         }
         System.out.println("Array copied from collection");
