@@ -50,7 +50,7 @@ public class CollectionDemo {
     public static Collection filter(Collection c, String s) {
         Collection result = new Collection();
         c.resetNext();
-        while(c.getCurrent() != null) {;
+        while(c.getCurrent() != null) {
             String temp = c.getNext();
             if(temp.startsWith(s)) {
                 result.addItem(temp);
