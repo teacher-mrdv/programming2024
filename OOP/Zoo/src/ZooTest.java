@@ -4,6 +4,7 @@ public class ZooTest {
         Dog cujo = new Dog("Fido", 2021, "Terrier");
         Dog pup = new Dog("Fido", 2021, "Terrier");
         Cat catty = new Cat("Paws", 2022, "short");
+        System.out.println(pup);
         myZoo.addAnimal(cujo);
         myZoo.addAnimal(catty);
         catty = new Cat("Aramis", 2019, "long");
@@ -15,6 +16,8 @@ public class ZooTest {
         sgZoo.addAnimal(catty);
         Cat garfield = new Cat("Garfield", 1978, "Orange");
         Cat garfieldo = new Cat("Garfield", 1978, "Orange");
+        System.out.println(garfield);
+        System.out.println(garfieldo);
         System.out.println("cujo == pup? " + (cujo == pup));
         System.out.println(cujo.hashCode() + " == " +
                 pup.hashCode() + " : " +
@@ -29,5 +32,7 @@ public class ZooTest {
         myZoo.removeAnimal(2);
         System.out.println(sgZoo);
         System.out.println(myZoo);
+        Dog wow = new Dog("tata", 2022, "bulldog");
+        System.out.println(wow.isDangerous);
     }
 }

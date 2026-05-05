@@ -2,26 +2,43 @@ import java.util.Date;
 
 public class Animal
 {// Attributes/fields/instance variable
+    private int id;
     private String name;
     private int birthYear;
-    private boolean isDangerous;
+    protected boolean isDangerous;
+    private static int counter = 0;
 
     // empty constructor
-    public Animal() { }
+    public Animal() {
+        id = 10000 + counter;
+        counter++;
+    }
 
     // custom constructor
     public Animal(String name, int birthYear, boolean isDangerous)
-    {   this.name = name;
+    {   id = 10000 + counter;
+        this.name = name;
         this.birthYear = birthYear;
         this.isDangerous = isDangerous;
+        counter++;
     }
 
     public Animal(String name, int birthYear)
-    {   this.name = name;
+    {   id = 10000 + counter;
+        this.name = name;
         this.birthYear = birthYear;
         this.isDangerous = false;
+        counter++;
     }
 
+    public Animal(String name)
+    {   int currentYear = new Date().getYear() + 1900;
+        id = 10000 + counter;
+        this.name = name;
+        this.birthYear = currentYear;
+        this.isDangerous = false;
+        counter++;
+    }
     public String getName()
     {   return name;
     }
@@ -53,6 +70,9 @@ public class Animal
             return "No";
     }
 
+    public int getId() {
+        return id;
+    }
     // calculates the age of the animal in years
     // USES the Java Date class from util
     public int calculateAge()
@@ -74,7 +94,7 @@ public class Animal
     @Override
     public String toString()
     {
-        return "Name: " + name +
+        return "ID: " + id + ", Name: " + name +
                 ", birthYear: " + birthYear +
                 ", Dangerous: " + getDangerous();
     }
